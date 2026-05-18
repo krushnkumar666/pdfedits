@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>PDF To Word Converter</title>
+
+    <!-- FONT -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ICONS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body>
+    <!-- BACKGROUND -->
+    <div class="bg"></div>
+
+    <!-- MAIN -->
+    <div class="main-container">
+      <!-- LEFT -->
+      <div class="left-section">
+        <div class="logo">
+          <i class="fa-solid fa-file-word"></i>
+        </div>
+
+        <h1>KRS PDF To Word Converter</h1>
+
+        <p>
+          Convert your PDF files into fully editable Word documents with better
+          formatting, alignment and layout preservation.
+        </p>
+
+        <div class="stats">
+          <div class="stat-box">
+            <h2>Fast</h2>
+            <span>High speed conversion</span>
+          </div>
+
+          <div class="stat-box">
+            <h2>Secure</h2>
+            <span>Files auto deleted</span>
+          </div>
+
+          <div class="stat-box">
+            <h2>DOCX</h2>
+            <span>Editable output</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="right-section">
+        <div class="upload-card">
+          <h2>Upload PDF</h2>
+
+          <p class="sub">Drag & drop or browse your PDF</p>
+
+          <form id="uploadForm">
+            <div class="drop-zone" id="dropZone">
+              <input type="file" id="pdfFile" hidden accept=".pdf" />
+
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+
+              <h3>Drop PDF Here</h3>
+
+              <span>or</span>
+
+              <button type="button" id="browseBtn">Browse File</button>
+            </div>
+
+            <div id="fileInfo"></div>
+
+            <div class="buttons">
+              <button type="submit" class="convert-btn">Convert PDF</button>
+
+              <button type="button" id="clearBtn" class="clear-btn">
+                Clear
+              </button>
+            </div>
+          </form>
+
+          <!-- PROGRESS -->
+          <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+
+          <!-- STATUS -->
+          <div id="status"></div>
+
+          <!-- RESULT -->
+          <div id="result"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-content">
+        <h3>KRS PDF Converter</h3>
+
+        <p>Professional PDF conversion with modern technology</p>
+
+        <div class="footer-links">
+          <a href="#"> Home </a>
+
+          <a href="#" onclick="openPopup('featuresPopup')"> Features </a>
+
+          <a href="#" onclick="openPopup('privacyPopup')"> Privacy </a>
+
+          <a href="#" onclick="openPopup('contactPopup')"> Contact </a>
+        </div>
+
+        <div class="socials">
+          <a href="https://github.com/krushnkumar666">
+            <i class="fab fa-github"></i>
+          </a>
+
+          <a href="https://www.linkedin.com/in/krushna-bawalge-62018a194/">
+            <i class="fab fa-linkedin"></i>
+          </a>
+
+          <a href="https://www.instagram.com/krishh_17_03/">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+
+        <span class="copy">
+          Powered by Krushna Bawalge • Fast & Secure PDF Tools
+        </span>
+      </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+  <!-- =========================
+FEATURES POPUP
+========================= -->
+
+  <div class="popup-overlay" id="featuresPopup">
+    <div class="popup-card">
+      <span class="close-btn" onclick="closePopup('featuresPopup')">
+        &times;
+      </span>
+
+      <h2>Website Features</h2>
+
+      <div class="popup-content">
+        <div class="popup-box">
+          <i class="fa-solid fa-file-word"></i>
+
+          <span> Editable DOCX Conversion </span>
+        </div>
+
+        <div class="popup-box">
+          <i class="fa-solid fa-bolt"></i>
+
+          <span> Fast PDF Processing </span>
+        </div>
+
+        <div class="popup-box">
+          <i class="fa-solid fa-image"></i>
+
+          <span> Image & Layout Preservation </span>
+        </div>
+
+        <div class="popup-box">
+          <i class="fa-solid fa-lock"></i>
+
+          <span> Secure File Handling </span>
+        </div>
+
+        <div class="popup-box">
+          <i class="fa-solid fa-mobile-screen"></i>
+
+          <span> Mobile Responsive Design </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+PRIVACY POPUP
+========================= -->
+
+  <div class="popup-overlay" id="privacyPopup">
+    <div class="popup-card">
+      <span class="close-btn" onclick="closePopup('privacyPopup')">
+        &times;
+      </span>
+
+      <h2>Privacy Policy</h2>
+
+      <p class="popup-text">
+        Your uploaded PDF files are processed securely and are automatically
+        removed from the server after conversion. We do not share, store or
+        access your personal documents.
+      </p>
+
+      <p class="popup-text">
+        This platform focuses on secure conversion, privacy protection and
+        professional document processing.
+      </p>
+    </div>
+  </div>
+
+  <!-- =========================
+CONTACT POPUP
+========================= -->
+
+  <div class="popup-overlay" id="contactPopup">
+    <div class="popup-card">
+      <span class="close-btn" onclick="closePopup('contactPopup')">
+        &times;
+      </span>
+
+      <h2>Contact Information</h2>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-user"></i>
+
+        <span> Krushna Bawalge </span>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-envelope"></i>
+
+        <span> krushnkumar403@gmail.com </span>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+
+        <span> +91 7391928805 </span>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-shield"></i>
+
+        <span> Secure & Professional PDF Tools </span>
+      </div>
+    </div>
+  </div>
+</html>
